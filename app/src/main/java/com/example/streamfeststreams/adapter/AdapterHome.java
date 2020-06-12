@@ -1,6 +1,7 @@
 package com.example.streamfeststreams.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
     private List<VideoYT> videoList;
+    static boolean isPurple = true;
 
     public AdapterHome(Context context, List<VideoYT> videoList) {
         this.context = context;
@@ -33,17 +35,15 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     class YoutubeHolder extends RecyclerView.ViewHolder  {
 
-        ImageView thumbnail;
+        //ImageView thumbnail;
+        de.hdodenhof.circleimageview.CircleImageView thumbnail;
         TextView title, tgl;
-
 
         public YoutubeHolder(@NonNull View itemView) {
             super(itemView);
             thumbnail = itemView.findViewById(R.id.iv_thumbnail);
             title = itemView.findViewById(R.id.title_text);
             tgl = itemView.findViewById(R.id.tgl_text);
-
-
         }
 
         public void setData(VideoYT data) {
@@ -62,6 +62,13 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             title.setText(getText);
             tgl.setText(getTgl);
+            if (isPurple){
+                thumbnail.setBorderColor(Color.parseColor("#FFA751"));
+                isPurple = false;
+            } else{
+                thumbnail.setBorderColor(Color.parseColor("#8E54E9"));
+                isPurple = true;
+            }
             Picasso.get()
                     .load(getThumb)
                     .placeholder(R.mipmap.ic_launcher)
