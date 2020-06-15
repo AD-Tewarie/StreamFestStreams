@@ -1,8 +1,12 @@
 package com.example.streamfeststreams.fragments;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,6 +57,11 @@ public class HomeFragment extends Fragment {
 
         if (videoList.size() == 0) {
             getJson();
+        }
+
+        if (getContext() != null && getActivity() != null) {
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+            rv.addItemDecoration(new DividerItemDecoration(getContext(), linearLayoutManager.getOrientation()));
         }
 
         return view;

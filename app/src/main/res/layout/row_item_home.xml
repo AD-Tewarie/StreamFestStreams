@@ -55,7 +55,10 @@
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+        android:fadingEdge="horizontal|vertical"
+        android:fadingEdgeLength="5dp"
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteY="112dp" />
 
     <View
         android:id="@+id/divider"

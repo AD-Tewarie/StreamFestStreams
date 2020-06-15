@@ -9,7 +9,6 @@
         <item name="android:textColorPrimary">@color/mainTextColor</item>
         <item name="android:textAppearanceSmall">@color/secondTextColor</item>
         <item name="titleTextColor">@color/mainTextColor</item>
-        <item name="civ_border_color">@color/purpleBubble</item>
         <item name="android:listDivider">@drawable/divider</item>
     </style>
 </resources>
