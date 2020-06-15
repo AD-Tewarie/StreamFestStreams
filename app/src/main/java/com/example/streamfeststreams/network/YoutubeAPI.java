@@ -26,8 +26,8 @@ public class YoutubeAPI {
     public static final String KEY = "&key=AIzaSyB8pq2Ou4V34O_sEakj_3iaLNGwUgKixDo";
     public static final String sch = "search?";
     public static final String max = "&maxResults=20";
-    public static final String chid = "&channelId=UCJhjE7wbdYAae1G25m0tHAA";
-    public static final String ord = "&eventType=live";
+    public static final String chid = "&channelId=UCcXcW-h_ST8xQi0j9C3wLjw";
+    public static final String ord = "&eventType=upcoming";
     public static final String type = "&type=video";
     public static final String part = "part=snippet";
 
