@@ -1,6 +1,7 @@
 package com.example.streamfeststreams.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.streamfeststreams.R;
+import com.example.streamfeststreams.fragments.YoutubeView;
 import com.example.streamfeststreams.models.VideoYT;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -50,15 +52,19 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             final String getText = data.getSnippet().getTitle();
             String getTgl = data.getSnippet().getPublishedAt();
             String getThumb = data.getSnippet().getThumbnails().getMedium().getUrl();
+            final String VidID = data.getId().getVideoId();
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, getText, Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(context, YoutubeView.class);
+                    i.putExtra("VidUrl", VidID );
+                    context.startActivity(i);
 
                 }
 
-        });
+            });
 
             title.setText(getText);
             tgl.setText(getTgl);
@@ -103,7 +109,7 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         VideoYT videoYT = videoList.get(position);
         YoutubeHolder yth = (YoutubeHolder) holder;
         yth.setData(videoYT);
-        
+
 
     }
 

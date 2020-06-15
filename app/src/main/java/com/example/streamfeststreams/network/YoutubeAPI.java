@@ -19,8 +19,12 @@ public class YoutubeAPI {
     // &eventType=live
     // &type=video
     //key 1 =  &key=AIzaSyDXMnoy7iTGTGSzy7PeyoCFEp5LyjwV45A
-    // key 2 = &key=AIzaSyDcPclW6TrXOBntzzc6dTs7D_ljrg1Epxk
+    // key 2 = AIzaSyB8pq2Ou4V34O_sEakj_3iaLNGwUgKixDo
     // AIzaSyC3GRGGR7pCAPHnpXY4YyYUpqrJiWs6FNk
+
+    // test channel : UCX4sShAQf01LYjYQhG2ZgKg
+    // streamfest id : UCcXcW-h_ST8xQi0j9C3wLjw
+    //
 
     public static final String BASE_URL = "https://www.googleapis.com/youtube/v3/";
     public static final String KEY = "&key=AIzaSyB8pq2Ou4V34O_sEakj_3iaLNGwUgKixDo";
