@@ -23,7 +23,7 @@ public class YoutubeAPI {
     // AIzaSyC3GRGGR7pCAPHnpXY4YyYUpqrJiWs6FNk
 
     public static final String BASE_URL = "https://www.googleapis.com/youtube/v3/";
-    public static final String KEY = "&key=AIzaSyDXMnoy7iTGTGSzy7PeyoCFEp5LyjwV45A";
+    public static final String KEY = "&key=AIzaSyB8pq2Ou4V34O_sEakj_3iaLNGwUgKixDo";
     public static final String sch = "search?";
     public static final String max = "&maxResults=20";
     public static final String chid = "&channelId=UCJhjE7wbdYAae1G25m0tHAA";

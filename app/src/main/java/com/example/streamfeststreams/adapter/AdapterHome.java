@@ -1,6 +1,8 @@
 package com.example.streamfeststreams.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.streamfeststreams.R;
+import com.example.streamfeststreams.fragments.YoutubeView;
+import com.example.streamfeststreams.models.VideoID;
 import com.example.streamfeststreams.models.VideoYT;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -26,9 +30,14 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private List<VideoYT> videoList;
 
-    public AdapterHome(Context context, List<VideoYT> videoList) {
+
+
+    public AdapterHome(Context context, List<VideoYT> videoList ) {
         this.context = context;
         this.videoList = videoList;
+
+
+
     }
 
     class YoutubeHolder extends RecyclerView.ViewHolder  {
@@ -37,8 +46,11 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         TextView title, tgl;
 
 
+
+
         public YoutubeHolder(@NonNull View itemView) {
             super(itemView);
+
             thumbnail = itemView.findViewById(R.id.iv_thumbnail);
             title = itemView.findViewById(R.id.title_text);
             tgl = itemView.findViewById(R.id.tgl_text);
@@ -46,15 +58,20 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         }
 
-        public void setData(VideoYT data) {
+        public void setData(final VideoYT data) {
             final String getText = data.getSnippet().getTitle();
             String getTgl = data.getSnippet().getPublishedAt();
             String getThumb = data.getSnippet().getThumbnails().getMedium().getUrl();
+            final String VidID = data.getId().getVideoId();
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, getText, Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(context, YoutubeView.class);
+                    i.putExtra("VidUrl", VidID );
+                    context.startActivity(i);
+
 
                 }
 
@@ -81,6 +98,9 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         }
                     });
         }
+
+
+
     }
 
     @NonNull
@@ -104,4 +124,13 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemCount() {
         return videoList.size();
     }
+
+
+
+
+
+
+
+
+
 }

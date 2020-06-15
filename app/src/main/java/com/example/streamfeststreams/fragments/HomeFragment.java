@@ -35,6 +35,8 @@ public class HomeFragment extends Fragment {
     private LinearLayoutManager manager;
     private List<VideoYT> videoList = new ArrayList<>();
 
+
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -46,7 +48,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         // Inflate the layout for this fragment
         RecyclerView rv = view.findViewById(R.id.recyclerView );
-        adapter = new AdapterHome(getContext(), videoList);
+        adapter = new AdapterHome(getContext(), videoList );
         manager = new LinearLayoutManager(getContext());
         rv.setAdapter(adapter);
         rv.setLayoutManager(manager);
@@ -57,6 +59,8 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
+
 
     private void getJson() {
         String url = YoutubeAPI.BASE_URL + YoutubeAPI.sch + YoutubeAPI.part + YoutubeAPI.chid + YoutubeAPI.max
@@ -82,4 +86,7 @@ public class HomeFragment extends Fragment {
 
         });
     }
+
+
+
 }
