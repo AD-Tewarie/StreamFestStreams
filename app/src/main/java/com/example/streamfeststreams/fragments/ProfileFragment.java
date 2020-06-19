@@ -68,22 +68,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        Switch switch1 = view.findViewById(R.id.switch1);
 
-        Context context = getActivity();
-        SharedPreferences appSettingsPrefs = context.getSharedPreferences("AppSettingsPrefs", 0);
-        boolean isNightModeOn = appSettingsPrefs.getBoolean("NightMode", false);
-
-        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
-            }
-        });
         return view;
     }
 }
