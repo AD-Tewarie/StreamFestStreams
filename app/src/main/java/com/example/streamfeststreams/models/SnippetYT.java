@@ -21,6 +21,10 @@ public class SnippetYT {
     @Expose
     private ThumbnailYT thumbnails;
 
+    @SerializedName("scheduledStartTime")
+    @Expose
+    private String scheduledStartTime;
+
     public SnippetYT() {
     }
 
@@ -41,6 +45,10 @@ public class SnippetYT {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getScheduledStartTime(){
+        return scheduledStartTime;
     }
 
     public void setTitle(String title) {

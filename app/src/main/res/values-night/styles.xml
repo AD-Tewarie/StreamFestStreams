@@ -22,4 +22,20 @@
         <item name="android:textColor">@color/mainTextColor</item>
         <item name="android:textColorHint">@color/secondTextColor</item>
     </style>
+
+    <style name="AppTheme.Home">
+        <item name="android:background">@drawable/home__donker_</item>
+    </style>
+
+    <style name="AppTheme.Search">
+        <item name="android:background">@drawable/zoek_donker</item>
+    </style>
+
+    <style name="AppTheme.Profile">
+        <item name="android:background">@drawable/profiel_donker</item>
+    </style>
+
+    <style name="AppTheme.Playlists">
+        <item name="android:background">@drawable/instellingen_donker</item>
+    </style>
 </resources>
