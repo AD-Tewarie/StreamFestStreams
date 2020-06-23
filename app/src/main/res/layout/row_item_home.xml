@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
-        android:id="@+id/title_text"
+        android:id="@+id/iv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
-        android:id="@+id/tgl_text"
+        android:id="@+id/tgl_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -41,10 +41,10 @@
         android:fontFamily="@font/vice_city_sans"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/secondTextColor"
-        app:layout_constraintEnd_toEndOf="@+id/title_text"
+        app:layout_constraintEnd_toEndOf="@+id/iv_title"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/title_text"
-        app:layout_constraintTop_toBottomOf="@+id/title_text" />
+        app:layout_constraintStart_toStartOf="@+id/iv_title"
+        app:layout_constraintTop_toBottomOf="@+id/iv_title" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

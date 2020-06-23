@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private PlaylistFragment playlistFragment = new PlaylistFragment();
     private SearchFragment searchFragment = new SearchFragment();
     private ProfileFragment profileFragment = new ProfileFragment();
+    private ListFragment listFragment = new ListFragment();
 
     private BottomNavigationView menuNav;
 

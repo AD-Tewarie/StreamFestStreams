@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,8 +43,8 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public YoutubeHolder(@NonNull View itemView) {
             super(itemView);
             thumbnail = itemView.findViewById(R.id.iv_thumbnail);
-            title = itemView.findViewById(R.id.title_text);
-            tgl = itemView.findViewById(R.id.tgl_text);
+            title = itemView.findViewById(R.id.iv_title);
+            tgl = itemView.findViewById(R.id.tgl_title);
         }
 
         public void setData(VideoYT data) {

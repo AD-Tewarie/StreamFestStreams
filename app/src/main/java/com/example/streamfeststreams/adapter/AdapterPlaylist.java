@@ -1,6 +1,7 @@
 package com.example.streamfeststreams.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.streamfeststreams.ListActivity;
 import com.example.streamfeststreams.R;
 import com.example.streamfeststreams.models.PlaylistItems;
-import com.example.streamfeststreams.models.VideoYT;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+
 
 import java.util.List;
 
@@ -27,6 +30,7 @@ public class AdapterPlaylist extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private Context context;
     private List<PlaylistItems> videoList;
 
+
     public AdapterPlaylist(Context context, List<PlaylistItems> videoList) {
         this.context = context;
         this.videoList = videoList;
@@ -35,15 +39,14 @@ public class AdapterPlaylist extends RecyclerView.Adapter<RecyclerView.ViewHolde
     class YoutubeHolder extends RecyclerView.ViewHolder  {
 
         ImageView thumbnail;
-        TextView title, subtitle, info;
+        TextView title;
 
 
         public YoutubeHolder(@NonNull View itemView) {
             super(itemView);
             thumbnail = itemView.findViewById(R.id.playlist_thumb);
             title = itemView.findViewById(R.id.playlist_title);
-            subtitle = itemView.findViewById(R.id.playlist_subtitle);
-            info = itemView.findViewById(R.id.playlist_info);
+
 
         }
 
@@ -51,19 +54,25 @@ public class AdapterPlaylist extends RecyclerView.Adapter<RecyclerView.ViewHolde
             final String getText = data.getSnippet().getTitle();
             int getCount = videoList.size();
             String getThumb = data.getSnippet().getThumbnails().getMedium().getUrl();
+            final String VidID = data.getId();
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, getText, Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(context, ListActivity.class);
+                    i.putExtra("PlUrl", VidID );
+                    context.startActivity(i);
 
-                }
 
-            });
+
+
+            }
+            }
+            );
 
             title.setText(getText);
-            subtitle.setText(String.valueOf(getCount)+ " videos");
-            info.setText(String.valueOf(getCount));
+
             Picasso.get()
                     .load(getThumb)
                     .placeholder(R.mipmap.ic_launcher)
@@ -84,6 +93,7 @@ public class AdapterPlaylist extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     });
         }
     }
+
 
     @NonNull
     @Override

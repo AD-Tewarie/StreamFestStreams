@@ -3,6 +3,7 @@ package com.example.streamfeststreams.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Collection;
 import java.util.List;
 
 public class ModelPlaylist {
@@ -31,7 +32,7 @@ public class ModelPlaylist {
         this.nextPageToken = nextPageToken;
     }
 
-    public List<PlaylistItems> getItems() {
+    public Collection<? extends PlaylistItems> getItems() {
         return items;
     }
 

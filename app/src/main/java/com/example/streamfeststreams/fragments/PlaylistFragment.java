@@ -2,8 +2,8 @@ package com.example.streamfeststreams.fragments;
 
 import android.os.Bundle;
 
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 
 import com.example.streamfeststreams.R;
 import com.example.streamfeststreams.adapter.AdapterPlaylist;
-import com.example.streamfeststreams.models.ModelHome;
 import com.example.streamfeststreams.models.ModelPlaylist;
 import com.example.streamfeststreams.models.PlaylistItems;
 import com.example.streamfeststreams.network.YoutubeAPI;
@@ -35,6 +34,7 @@ public class PlaylistFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private AdapterPlaylist adapter;
     private LinearLayoutManager manager;
+    private FragmentManager f_manager;
     private List<PlaylistItems> videoList = new ArrayList<>();
 
 
@@ -50,7 +50,7 @@ public class PlaylistFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_playlist, container, false);
         // Inflate the layout for this fragment
-        RecyclerView rv = view.findViewById(R.id.recycler_playlist);
+        RecyclerView rv = view.findViewById(R.id.recycler_playlist_layout);
         adapter = new AdapterPlaylist(getContext(), videoList);
         manager = new LinearLayoutManager(getContext());
         rv.setAdapter(adapter);
@@ -63,7 +63,10 @@ public class PlaylistFragment extends Fragment {
 
     private void getJson() {
         String url = YoutubeAPI.BASE_URL + YoutubeAPI.ply + YoutubeAPI.part_ply + YoutubeAPI.chid + YoutubeAPI.max + YoutubeAPI.KEY;
+       // String playlistData = YoutubeAPI.BASE_URL + YoutubeAPI.ply + YoutubeAPI.part + YoutubeAPI.chid + YoutubeAPI.max + YoutubeAPI.KEY;
         Call<ModelPlaylist> data = YoutubeAPI.getPlaylistVideo().getYT(url);
+
+
         data.enqueue(new Callback<ModelPlaylist>() {
             @Override
             public void onResponse(Call<ModelPlaylist> call, Response<ModelPlaylist> response) {
@@ -83,5 +86,7 @@ public class PlaylistFragment extends Fragment {
 
             }
         });
+
+
     }
 }

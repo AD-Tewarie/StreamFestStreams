@@ -13,6 +13,21 @@ public class PlaylistSnippet {
     @Expose
     private ThumbnailYT thumbnails;
 
+    @SerializedName("playlistId")
+    @Expose
+    private String playlistId;
+
+    public String getPlaylistId() {
+        return playlistId;
+    }
+
+    public void setPlaylistId(String playlistId) {
+        this.playlistId = playlistId;
+    }
+
+    public PlaylistSnippet(String playlistId) {
+        this.playlistId = playlistId;
+    }
 
     public PlaylistSnippet() { }
 

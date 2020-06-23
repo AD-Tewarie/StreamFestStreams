@@ -1,6 +1,7 @@
 package com.example.streamfeststreams.network;
 
 import com.example.streamfeststreams.models.ModelHome;
+import com.example.streamfeststreams.models.ModelList;
 import com.example.streamfeststreams.models.ModelPlaylist;
 
 import retrofit2.Call;
@@ -24,14 +25,14 @@ public class YoutubeAPI {
 
     // test channel : UCX4sShAQf01LYjYQhG2ZgKg
     // streamfest id : UCcXcW-h_ST8xQi0j9C3wLjw
-    //
+    // UCX4sShAQf01LYjYQhG2ZgKg
 
     public static final String BASE_URL = "https://www.googleapis.com/youtube/v3/";
-    public static final String KEY = "&key=AIzaSyC3GRGGR7pCAPHnpXY4YyYUpqrJiWs6FNk";
+    public static final String KEY = "&key=AIzaSyC3MeZklabvwOoAx4OPfmb8ElZAsRjiFTU";
     public static final String sch = "search?";
     public static final String max = "&maxResults=20";
-    public static final String chid = "&channelId=UCL7Gqo-3cnuCjYyz73fbhGg";
-    public static final String ord = "&eventType=upcoming";
+    public static final String chid = "&channelId=UCX4sShAQf01LYjYQhG2ZgKg";
+    public static final String ord = "&eventType=live";
     public static final String type = "&type=video";
     public static final String part = "part=snippet";
 
@@ -39,6 +40,8 @@ public class YoutubeAPI {
     public static final String part_ply = "part=snippet";
 
     public static final String query = "&q=";
+    public static final String plyit = "playlistItems?" ;
+    public static final String plchid = "&playlistId=";
 
 
     // https://www.googleapis.com/youtube/v3/
@@ -60,8 +63,15 @@ public class YoutubeAPI {
         Call<ModelPlaylist> getYT(@Url String url);
     }
 
+    public interface ListVideo {
+        @GET
+        Call<ModelList> getYT(@Url String url);
+    }
+
     private static HomeVideo homeVideo = null;
     private static PlaylistVideo playlistVideo = null;
+    private static ListVideo listVideo = null;
+
 
     public static HomeVideo getHomeVideo() {
         if (homeVideo == null) {
@@ -83,6 +93,17 @@ public class YoutubeAPI {
             playlistVideo = retrofit.create(PlaylistVideo.class);
         }
         return playlistVideo;
+    }
+
+    public static ListVideo getListVideo() {
+        if (listVideo == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            listVideo = retrofit.create(ListVideo.class);
+        }
+        return listVideo;
     }
 
 
