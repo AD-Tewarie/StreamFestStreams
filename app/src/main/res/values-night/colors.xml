@@ -3,8 +3,8 @@
     <color name="colorPrimary">#F44336</color>
     <color name="colorPrimaryDark">#F44336</color>
     <color name="colorAccent">#0277BD</color>
-    <color name="backgroundColor">#020212</color>
-    <color name="mainTextColor">#e8e8ff</color>
+    <color name="backgroundColor">#252422</color>
+    <color name="mainTextColor">#ffffff</color>
     <color name="secondTextColor">#a2a2a3</color>
     <color name="violet">#8E54E9</color>
     <color name="flame">#FFA751</color>

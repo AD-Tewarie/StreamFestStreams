@@ -9,7 +9,7 @@
     <item
         android:id="@+id/search_home"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="@android:string/search_go" />
+        android:title="@android:string/search_go"/>
     <item
         android:id="@+id/playlist_home"
         android:enabled="true"
@@ -21,5 +21,5 @@
         android:enabled="true"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="@string/profile"
-        android:visible="true" />
+        android:visible="true"/>
 </menu>

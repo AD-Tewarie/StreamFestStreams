@@ -10,6 +10,13 @@
         <item name="android:textAppearanceSmall">@color/secondTextColor</item>
         <item name="titleTextColor">@color/mainTextColor</item>
         <item name="android:listDivider">@drawable/divider</item>
+        <item name="android:actionBarStyle">@style/CustomActionBar</item>
+        <item name="actionBarStyle">@style/CustomActionBar</item>
+    </style>
+
+    <style name="CustomActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/home__licht_</item>
+        <item name="background">@drawable/home__licht_</item>
     </style>
 
     <style name="AppTheme.Button">
@@ -19,21 +26,5 @@
 
     <style name="EditText" parent="Widget.AppCompat.EditText">
 
-    </style>
-
-    <style name="AppTheme.Home">
-        <item name="android:background">@drawable/home__licht_</item>
-    </style>
-
-    <style name="AppTheme.Search">
-        <item name="android:background">@drawable/zoek_licht</item>
-    </style>
-
-    <style name="AppTheme.Profile">
-        <item name="android:background">@drawable/profiel_licht</item>
-    </style>
-
-    <style name="AppTheme.Playlists">
-        <item name="android:background">@drawable/instellingen_licht</item>
     </style>
 </resources>
