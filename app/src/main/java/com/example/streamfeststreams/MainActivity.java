@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         menuNav = findViewById(R.id.menu);
 
         setFragment (homeFragment);
+        getSupportActionBar().setTitle("Home");
         menuNav.setSelectedItemId(R.id.menu_home);
         menuNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
+        // R.menu.menu_top is a reference to an xml file named menu_top.xml which should be inside your res/menu directory.
         // If you don't have res/menu, just create a directory named "menu" inside res
         getMenuInflater().inflate(R.menu.menu_top, menu);
         return super.onCreateOptionsMenu(menu);
@@ -110,16 +111,16 @@ public class MainActivity extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 editor.putBoolean("isDarkModeOn", false);
                 editor.apply();
-                setFragment(homeFragment);
-                getSupportActionBar().setTitle("Home");
+
             } else{
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 editor.putBoolean("isDarkModeOn", true);
                 editor.apply();
-                setFragment(homeFragment);
-                getSupportActionBar().setTitle("Home");
             }
         }
+        setFragment(homeFragment);
+        menuNav.setSelectedItemId(R.id.menu_home);
+        getSupportActionBar().setTitle("Home");
         return super.onOptionsItemSelected(item);
     }
 }

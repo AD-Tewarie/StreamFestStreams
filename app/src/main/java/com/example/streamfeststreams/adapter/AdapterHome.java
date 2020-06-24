@@ -49,7 +49,7 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public void setData(VideoYT data) {
             final String getText = data.getSnippet().getTitle();
-            String getTgl = data.getSnippet().getPublishedAt();
+            String getTgl = data.getSnippet().getDescription();
             String getThumb = data.getSnippet().getThumbnails().getMedium().getUrl();
             final String VidID = data.getId().getVideoId();
 

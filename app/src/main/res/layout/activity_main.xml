@@ -24,13 +24,14 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menu"
+        style="@style/AppTheme.Menu"
         android:layout_width="0dp"
         android:layout_height="59dp"
         android:background="@color/backgroundColor"
         app:itemBackground="?attr/selectableItemBackground"
         app:itemIconTint="@color/mainTextColor"
         app:itemTextColor="@color/mainTextColor"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

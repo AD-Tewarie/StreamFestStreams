@@ -1,5 +1,6 @@
 package com.example.streamfeststreams;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -74,6 +75,16 @@ public class ListActivity extends AppCompatActivity {
                     }
                 }
             });
+
+            SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
+
+            if (isDarkModeOn){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
         }
 
         private void setFragment(Fragment fragment) {

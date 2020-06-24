@@ -27,4 +27,9 @@
     <style name="EditText" parent="Widget.AppCompat.EditText">
 
     </style>
+
+    <style name="AppTheme.Menu">
+        <item name="fontFamily">@font/vice_city_sans</item>
+        <item name="android:fontFamily">@font/vice_city_sans</item>
+    </style>
 </resources>
