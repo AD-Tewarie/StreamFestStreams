@@ -6,4 +6,6 @@
     <string name="home">Home</string>
     <string name="playlist">Playlist</string>
     <string name="profile">Profile</string>
+    <string name="test">test</string>
+    <string name="todo">TODO</string>
 </resources>
