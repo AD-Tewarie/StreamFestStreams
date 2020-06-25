@@ -7,14 +7,19 @@ import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+
+import com.example.streamfeststreams.fragments.ProfileFragment;
 
 public class LoginActivity extends AppCompatActivity {
+    public static final String KEY_TO_INTENT = "com.example.streamfest.KEY";
     private EditText Name;
     private EditText Password;
     private Button Login;
@@ -31,12 +36,16 @@ public class LoginActivity extends AppCompatActivity {
         boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
 
         layout = (ConstraintLayout)findViewById(R.id.login_layout_constraint);
+        ImageView imageViewLogo = (ImageView)findViewById(R.id.imageView2);
+
         if (isDarkModeOn){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             layout.setBackgroundResource(R.drawable.login_donker);
+            imageViewLogo.setImageResource(R.drawable.streamfest_logo__white);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             layout.setBackgroundResource(R.drawable.login_licht);
+            imageViewLogo.setImageResource(R.drawable.streamfest_logo__black);
         }
 
         Name = (EditText) findViewById(R.id.nameLogin);
@@ -60,6 +69,5 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
-
     }
 }
