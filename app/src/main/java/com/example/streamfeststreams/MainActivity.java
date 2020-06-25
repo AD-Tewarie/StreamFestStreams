@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     boolean isDarkModeOn;
     SharedPreferences.Editor editor;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
