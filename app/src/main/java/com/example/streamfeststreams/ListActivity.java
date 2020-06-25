@@ -2,6 +2,7 @@ package com.example.streamfeststreams;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -28,20 +29,21 @@ public class ListActivity extends AppCompatActivity {
 
         private BottomNavigationView menuNav;
 
-
+        SharedPreferences sharedPreferences;
+        boolean isDarkModeOn;
+        SharedPreferences.Editor editor;
 
 
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             setContentView(R.layout.activity_main);
 
             menuNav = findViewById(R.id.menu);
 
             setFragment (listFragment);
-            menuNav.setSelectedItemId(R.id.menu_home);
+            menuNav.setSelectedItemId(R.id.playlist_home);
             menuNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -76,9 +78,9 @@ public class ListActivity extends AppCompatActivity {
                 }
             });
 
-            SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
+            sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+            editor = sharedPreferences.edit();
+            isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
 
             if (isDarkModeOn){
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -86,6 +88,36 @@ public class ListActivity extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // R.menu.menu_top is a reference to an xml file named menu_top.xml which should be inside your res/menu directory.
+        // If you don't have res/menu, just create a directory named "menu" inside res
+        getMenuInflater().inflate(R.menu.menu_top, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.day_night_mode) {
+            if (isDarkModeOn) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                editor.putBoolean("isDarkModeOn", false);
+                editor.apply();
+
+            } else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                editor.putBoolean("isDarkModeOn", true);
+                editor.apply();
+            }
+        }
+        setFragment(homeFragment);
+        menuNav.setSelectedItemId(R.id.menu_home);
+        getSupportActionBar().setTitle("Home");
+        return super.onOptionsItemSelected(item);
+    }
 
         private void setFragment(Fragment fragment) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
