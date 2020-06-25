@@ -41,7 +41,7 @@ public class ListActivity extends AppCompatActivity {
             menuNav = findViewById(R.id.menu);
 
             setFragment (listFragment);
-            menuNav.setSelectedItemId(R.id.menu_home);
+            menuNav.setSelectedItemId(R.id.playlist_home);
             menuNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
