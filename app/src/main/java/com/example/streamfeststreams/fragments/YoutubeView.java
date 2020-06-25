@@ -45,7 +45,7 @@ public class YoutubeView extends AppCompatActivity {
 
 
         //repeates this method every second
-        customHandler.postDelayed(updateTimerThread, 0);
+      //  customHandler.postDelayed(updateTimerThread, 0);
 
         final com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView third_party_player_view = findViewById(R.id.third_party_player_view);
 
@@ -87,7 +87,7 @@ public class YoutubeView extends AppCompatActivity {
     }
 
     //Refreshes the livechat every second
-    private Runnable updateTimerThread = new Runnable() {
+    /*private Runnable updateTimerThread = new Runnable() {
         @Override
         public void run() {
             final TextView textViewResult = (TextView) findViewById(R.id.text_view_result);
@@ -127,7 +127,7 @@ public class YoutubeView extends AppCompatActivity {
 
             customHandler.postDelayed(this, 1000);
         }
-    };
+    };*/
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
