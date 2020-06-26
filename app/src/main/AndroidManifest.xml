@@ -26,7 +26,8 @@
 
         </activity>
         <activity android:name=".fragments.YoutubeView"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout">></activity>
         <activity android:name=".ListActivity"></activity>
     </application>
 

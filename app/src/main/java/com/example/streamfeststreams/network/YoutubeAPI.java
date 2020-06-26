@@ -28,11 +28,11 @@ public class YoutubeAPI {
     // UCX4sShAQf01LYjYQhG2ZgKg
 
     public static final String BASE_URL = "https://www.googleapis.com/youtube/v3/";
-    public static final String KEY = "&key=AIzaSyC_GuufDiVCiwIsr2F-Nyi44u7CfGGevSA";
+    public static final String KEY = "&key=AIzaSyD6XMmXerdnMkZsLBX4c2plIHVJz7okIgw";
     public static final String sch = "search?";
     public static final String max = "&maxResults=20";
-    public static final String chid = "&channelId=UCX4sShAQf01LYjYQhG2ZgKg";
-    public static final String ord = "&eventType=live";
+    public static final String chid = "&channelId=UCL7Gqo-3cnuCjYyz73fbhGg";
+    public static final String ord = "&eventType=upcoming";
     public static final String type = "&type=video";
     public static final String part = "part=snippet";
 

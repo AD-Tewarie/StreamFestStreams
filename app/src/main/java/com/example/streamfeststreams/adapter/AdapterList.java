@@ -2,6 +2,7 @@ package com.example.streamfeststreams.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,7 @@ public class AdapterList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     class YoutubeHolder extends RecyclerView.ViewHolder  {
 
 
-        ImageView thumbnail;
+        de.hdodenhof.circleimageview.CircleImageView thumbnail;
         TextView title, tgl;
 
         public YoutubeHolder(@NonNull View itemView) {
@@ -69,6 +70,15 @@ public class AdapterList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             title.setText(getText);
             tgl.setText(getTgl);
+
+            if (isPurple){
+                thumbnail.setBorderColor(Color.parseColor("#FFA751"));
+                isPurple = false;
+            } else{
+                thumbnail.setBorderColor(Color.parseColor("#8E54E9"));
+                isPurple = true;
+            }
+
             Picasso.get()
                     .load(getThumb)
                     .placeholder(R.mipmap.ic_launcher)
